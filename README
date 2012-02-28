@@ -1,0 +1,38 @@
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+::                  README file for PyLineBreak                               ::
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+VERSION:    0.12
+CONTACT:    James Hendrie (hendrie dot james at gmail dot com)
+
+
+Description:
+    PyLineBreak is a script that breaks any text that it's fed into a format
+    that's a bit more pleasing to read on a TTY / teminal emulator.  You can
+    use it to dump the text directly to stdout or you can write text to a file.
+
+-h or --help will print the help screen.
+-v or --version will print the version and contact information.
+
+
+USAGE:  pylinebreak [input] [output]
+
+PyLineBreak reads from a file (or stdin), formats any especially long lines
+that it finds in the text, and outputs to stdout (or, optionally, a file).
+
+Examples:
+
+pylinebreak FILE.txt
+    This will read the text in FILE.txt, format it, and dump it to stdout
+
+pylinebreak FILE_1.txt FILE_2.txt
+    This will read the text from FILE_1.txt, format the text, and write it to
+    FILE_2.txt.
+
+cat somefile | pylinebreak - | some_other_program
+    This concatenates the text from 'somefile', dumping it to stdout.  Stdout is
+    then piped to pylinbreak which reads from stdin ('-'), the results of which
+    are then piped again to some_other_program.
+
+
